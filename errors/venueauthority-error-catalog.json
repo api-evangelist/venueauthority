@@ -1,0 +1,42 @@
+[
+  {
+    "status": 400,
+    "code": "invalid_request",
+    "metered": false
+  },
+  {
+    "status": 401,
+    "code": "invalid_api_key",
+    "metered": false
+  },
+  {
+    "status": 402,
+    "code": "balance_exhausted",
+    "metered": false
+  },
+  {
+    "status": 409,
+    "code": "idempotency_conflict",
+    "metered": false
+  },
+  {
+    "status": 410,
+    "code": "source_withdrawn",
+    "metered": false
+  },
+  {
+    "status": 422,
+    "code": "policy_rejected",
+    "metered": true
+  },
+  {
+    "status": 429,
+    "code": "rate_limited",
+    "metered": false
+  },
+  {
+    "status": 503,
+    "code": "rights_or_source_unavailable",
+    "metered": false
+  }
+]

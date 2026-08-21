@@ -1,0 +1,47 @@
+# Venue Authority
+
+> Venue Authority is a facility verification and monitoring API for payment facilitators, marketplaces, KYB providers, and restaurant platforms. It matches a food-service business name and street address to supported regulator records and returns a fail-closed decision with source evidence.
+
+Venue Authority is operated by Zupa Print. The product reports what a cited regulator source published at a stated time. It does not establish the legal operator, guarantee that a venue is physically open, replace a regulator, or provide legal advice.
+
+## Product
+
+- [Venue Authority](https://venueauthority.com/): Product overview and public example lookup.
+- [Product paths](https://venueauthority.com/product): Facility resolution, evidence receipts, monitoring, portfolio evaluation, and API documentation.
+- [Solutions](https://venueauthority.com/solutions): Use cases for payment facilitators, marketplaces, KYB providers, and restaurant portfolios.
+- [Resources](https://venueauthority.com/resources): Public records, inspection reports, coverage, methodology, and service status.
+- [Pricing](https://venueauthority.com/pricing): Six one-time prepaid API capacity tiers with unit counts and request speeds.
+- [Portfolio Proof](https://venueauthority.com/portfolio-proof): Evaluate a bounded merchant CSV sample before buying capacity.
+
+## API and integration
+
+- [Developer API](https://venueauthority.com/developers): API behavior, authentication, examples, metering, replay, monitoring, and exports.
+- [APIs.json index](https://venueauthority.com/apis.json): Machine-readable catalog of the API contract, documentation, pricing, policies, status, and integration files.
+- [OpenAPI 3.1 contract](https://venueauthority.com/openapi.json): Machine-readable API contract, version 2026-08-21.
+- [Postman collection](https://venueauthority.com/postman/venue-authority.json): Generated integration requests.
+- [Quick start](https://venueauthority.com/docs/quick-start.md): Plain Markdown integration guide.
+- [Error catalogue](https://venueauthority.com/docs/error-catalogue.json): Machine-readable HTTP error and metering behavior.
+- [GitHub integration kit](https://github.com/kingymon1/venue-authority-api): Public OpenAPI, Postman, and quick-start files.
+
+## Evidence and coverage
+
+- [Coverage](https://venueauthority.com/coverage): Current serving counts, source freshness, source classes, and limits.
+- [Public regulator evidence archive](https://venueauthority.com/business-license-lookup): Current jurisdiction and leading-city indexes with source-scoped counts, indexed facility examples, source identifiers, and evidence history.
+- [Canonical public URL inventory](https://venueauthority.com/sitemap.xml): Current jurisdiction, city, facility, product, and trust pages.
+- [Inspection reports](https://venueauthority.com/restaurant-inspection-reports): Public closure and reopening examples with source links.
+- [Methodology](https://venueauthority.com/methodology): Resolver policy, source interpretation, benchmark, and limitations.
+- [Status](https://venueauthority.com/status): Current resolver, source, account, billing, monitoring, and webhook state.
+
+## Trust and policies
+
+- [Trust Center](https://venueauthority.com/trust): Source, privacy, security, billing, refresh, webhook, subprocessor, and incident documentation.
+- [Privacy Policy](https://venueauthority.com/privacy): Data collection, processing, retention, and customer requests.
+- [Terms of Service](https://venueauthority.com/terms): Business-use terms and service boundaries.
+- [Refund policy](https://venueauthority.com/refunds): Refund handling for prepaid capacity.
+- [Support](https://venueauthority.com/support): Asynchronous support and safe incident-report details.
+
+## Full context
+
+- [Full LLM context](https://venueauthority.com/llms-full.txt): Expanded product facts, live serving metadata, pricing, API semantics, source list, and canonical pages.
+
+The canonical current facts are the Coverage, Status, Pricing, and Developer API pages. This file is a discovery index, not a substitute for those live pages.

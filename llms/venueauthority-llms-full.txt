@@ -1,0 +1,197 @@
+# Venue Authority full context
+
+> Venue Authority is a self-serve facility verification and monitoring API for payment facilitators, marketplaces, KYB providers, and restaurant platforms.
+
+## Product identity
+
+- Name: Venue Authority
+- Operator: Zupa Print
+- Canonical origin: https://venueauthority.com/
+- Support: support@venueauthority.com
+- API contract version: 2026-08-21
+- Primary audience: payment facilitators, marketplaces, KYB data providers, restaurant portfolios, and developers who need facility-level regulator evidence
+
+Venue Authority accepts a merchant name and street address. The resolver either accepts one supported regulator record or rejects the request under a frozen ambiguity policy. It does not guess through materially tied candidates or address conflicts.
+
+An accepted response can include the canonical facility ID, source class, source attribution, source URL, snapshot identity, available history, authority-state assessment, and evidence hashes. A policy rejection includes its reason and receipt context. One valid authenticated resolution or canonical facility request consumes one prepaid decision unit, including a policy rejection. Exact replay of the same request ID and payload returns stored work without another debit.
+
+## Current serving data
+
+- Serving records: 646,312
+- Serving sources: 39
+- Serving snapshot: 2026-08-21T00:00:43.460Z
+
+| Source ID | Source class | Records | Last validated pull | Freshness |
+| --- | --- | ---: | --- | --- |
+| alameda-county-restaurant-inspections-arcgis | food inspection | 5,101 | 2026-08-20T18:50:12.419Z | healthy |
+| austin-food-inspection-scores-ecmv-9xxi | food inspection | 6,518 | 2026-08-20T23:10:30.001Z | healthy |
+| baton-rouge-retail-food-inspections-ux2t-b9wr | food inspection | 5,319 | 2026-08-20T19:40:30.041Z | healthy |
+| boulder-county-restaurant-inspections-tuvj-xz3m | food inspection | 1,798 | 2026-08-20T22:14:28.639Z | healthy |
+| california-abc-active-licenses-daily-export | alcohol license | 87,844 | 2026-08-20T19:10:05.547Z | healthy |
+| cambridge-food-establishment-permits-iect-ma2e | food inspection | 1,630 | 2026-08-20T23:31:28.761Z | healthy |
+| chicago-current-liquor-licenses-nrmj-3kcf | alcohol license | 6,650 | 2026-08-20T20:01:15.677Z | healthy |
+| chicago-food-inspections-4ijn-s7e5 | food inspection | 47,585 | 2026-08-20T16:29:25.099Z | healthy |
+| cincinnati-food-safety-program-rg6p-b3h3 | food inspection | 9,151 | 2026-08-20T20:10:43.699Z | healthy |
+| colorado-cdor-active-liquor-licenses-ier5-5ms2 | alcohol license | 16,652 | 2026-08-20T20:30:41.996Z | healthy |
+| connecticut-liquor-permits-nesc-tyaz | alcohol license | 4,181 | 2026-08-20T19:20:32.295Z | healthy |
+| connecticut-restaurant-liquor-licenses-gm8q-ur5f | alcohol license | 2,201 | 2026-08-20T23:01:19.542Z | healthy |
+| detroit-restaurant-establishments-arcgis | food inspection | 7,813 | 2026-08-20T22:33:18.921Z | healthy |
+| fairfax-permitted-food-establishments-arcgis | food inspection | 3,876 | 2026-08-20T21:40:23.472Z | healthy |
+| fulton-county-food-service-inspections-w896-7wba | food inspection | 6,035 | 2026-08-20T19:50:17.504Z | healthy |
+| kansas-city-food-permits-sz9c-c5ux | food inspection | 3,673 | 2026-08-20T23:50:28.267Z | healthy |
+| king-county | food inspection | 12,264 | 2026-08-21T00:00:40.172Z | healthy |
+| los-angeles-county-food-safety-bulk-discovery | food inspection | 37,211 | 2026-08-20T22:40:29.903Z | healthy |
+| louisville-food-service-inspections-arcgis | food inspection | 4,315 | 2026-08-20T18:40:39.483Z | healthy |
+| maricopa-county-restaurants-arcgis | food inspection | 27,488 | 2026-08-20T16:34:39.365Z | healthy |
+| marin-food-facility-inspections-73zb-z5me | food inspection | 1,504 | 2026-08-20T23:20:34.971Z | healthy |
+| massachusetts-abcc-active-retail-licenses | alcohol license | 12,605 | 2026-08-20T16:18:28.275Z | healthy |
+| massachusetts-abcc-active-state-licenses | alcohol license | 5,173 | 2026-08-20T16:15:06.309Z | healthy |
+| minneapolis-food-inspections-arcgis | food inspection | 2,897 | 2026-08-20T23:40:51.600Z | healthy |
+| montgomery-county-md-food-inspections-5pue-gfbe | food inspection | 4,160 | 2026-08-20T18:31:46.928Z | healthy |
+| new-york-active-food-service-inspections-2hcc-shji | food inspection | 33,400 | 2026-08-20T22:47:15.173Z | healthy |
+| new-york-state-liquor-authority-active-licenses-9s3h-dpkz | alcohol license | 59,930 | 2026-08-20T16:31:55.696Z | healthy |
+| nyc | food inspection | 31,298 | 2026-08-21T00:00:32.805Z | healthy |
+| oregon-olcc-alcohol-licensed-businesses-srxe-qkm2 | alcohol license | 17,755 | 2026-08-20T21:20:11.458Z | healthy |
+| philadelphia-food-business-licenses-carto | food inspection | 39,228 | 2026-08-20T20:50:43.050Z | healthy |
+| prince-georges-food-inspections-umjn-t2iz | food inspection | 3,380 | 2026-08-20T21:01:41.577Z | healthy |
+| san-francisco-health-inspections-tvy3-wexg | food inspection | 8,578 | 2026-08-20T21:10:44.107Z | healthy |
+| santa-clara-food-business-inventory-vuw7-jmjk | food inspection | 9,708 | 2026-08-20T16:10:51.073Z | healthy |
+| texas-tabc-license-information-7hf9-qc9f | alcohol license | 78,198 | 2026-08-20T22:34:11.749Z | healthy |
+| tri-county-colorado-restaurant-inspections-869n-zj3f | food inspection | 4,004 | 2026-08-20T21:31:24.956Z | healthy |
+| virginia-abc-active-permanent-premises | alcohol license | 18,171 | 2026-08-20T22:32:34.830Z | healthy |
+| wake-county | food inspection | 4,059 | 2026-08-21T00:00:43.460Z | healthy |
+| washington-lcb-active-off-premise-licenses | alcohol license | 5,707 | 2026-08-20T22:50:30.360Z | healthy |
+| washington-lcb-active-on-premise-licenses | alcohol license | 9,252 | 2026-08-20T22:31:27.016Z | healthy |
+
+The source list above is generated from the active public serving state. Publication approval remains in effect until a source is explicitly withdrawn. Source freshness and serving admission are reported separately. The [Coverage](https://venueauthority.com/coverage) page is the canonical source-by-source presentation, and the [Status](https://venueauthority.com/status) page is the canonical availability presentation.
+
+## Interpretation limits
+
+- A regulator facility record is not necessarily the legal operator.
+- Current source presence is not a universal operating license.
+- A missing record is not called a closure unless the source contract supports that conclusion.
+- Source history is returned only where the source provides it or where the product has retained permitted history.
+- The service does not guarantee that a venue is physically open.
+- The response is not legal advice, regulator endorsement, sanctions screening, beneficial-ownership data, or complete nationwide KYB.
+
+## API behavior
+
+- Base URL: https://venueauthority.com
+- Authentication: bearer API key for commercial endpoints; signed-in customer session is also accepted for supported workspace-management endpoints
+- Resolver: POST /api/v1/resolve
+- Canonical facility: GET /api/v1/facilities/{id}
+- Public coverage: GET /api/v1/coverage
+- Watchlists: /api/v1/portfolios and nested item and event endpoints
+- Webhooks: /api/v1/webhooks and /api/v1/webhooks/deliveries
+- Audit exports: /api/v1/audit-exports and /api/v1/audit-exports/{id}
+- Idempotency: X-Request-Id accepts a stable 8 to 128 character identifier
+- Webhook delivery: at least once; consumers must verify the HMAC signature and deduplicate the stable event ID
+
+Machine-readable integration files:
+
+- [APIs.json index](https://venueauthority.com/apis.json): Machine-readable API operations and discovery catalog.
+- [OpenAPI 3.1 contract](https://venueauthority.com/openapi.json): Authoritative endpoint and schema contract.
+- [Postman collection](https://venueauthority.com/postman/venue-authority.json): Generated request collection.
+- [Quick start](https://venueauthority.com/docs/quick-start.md): Markdown integration steps and cURL example.
+- [Error catalogue](https://venueauthority.com/docs/error-catalogue.json): HTTP error and metering behavior.
+- [Webhook verification example](https://venueauthority.com/docs/verify-webhook.mjs): Node.js HMAC verification example.
+- [GitHub integration kit](https://github.com/kingymon1/venue-authority-api): Public OpenAPI, Postman, and quick-start files.
+
+## Pricing
+
+All published plans are one-time prepaid purchases. There is no automatic renewal. Larger plans provide a lower effective unit price and a higher sustained request rate.
+
+| Plan | Price | Decision units | Sustained rate | Burst capacity |
+| --- | ---: | ---: | ---: | ---: |
+| Pilot | $149 | 100 | 1 req/s | 2 |
+| Professional | $499 | 400 | 5 req/s | 10 |
+| Scale | $1,999 | 2,000 | 20 req/s | 40 |
+| Production | $10,000 | 12,000 | 50 req/s | 100 |
+| Portfolio | $30,000 | 40,000 | 100 req/s | 200 |
+| Embedded program | $100,000 | 150,000 | 200 req/s | 400 |
+
+The [Pricing](https://venueauthority.com/pricing) page and Checkout are canonical for current availability. The plan total and unit grant are exact. Displayed per-decision figures are rounded for readability.
+
+## Public evidence and acquisition pages
+
+- [Product overview](https://venueauthority.com/product): Facility resolution, source-linked receipts, monitoring, and integration paths.
+- [Solutions overview](https://venueauthority.com/solutions): Buyer-specific paths for using local regulator evidence.
+- [Resources overview](https://venueauthority.com/resources): Public evidence, coverage, methodology, and service status.
+- [Business license lookup](https://venueauthority.com/business-license-lookup): Public jurisdiction and leading-city indexes with source-scoped facility evidence.
+- [Restaurant inspection reports](https://venueauthority.com/restaurant-inspection-reports): Closure and reopening examples.
+- [Restaurant license verification API](https://venueauthority.com/restaurant-license-verification-api): Product capability and prepaid access overview.
+- [Food-service business verification API](https://venueauthority.com/food-service-business-verification-api): Developer-focused facility resolution page.
+- [Merchant risk monitoring API](https://venueauthority.com/merchant-risk-monitoring-api): Watchlist and webhook workflow.
+- [Payment facilitators](https://venueauthority.com/solutions/payment-facilitators): Facility evidence for merchant onboarding.
+- [Marketplace onboarding](https://venueauthority.com/solutions/marketplace-onboarding): Facility checks for listing review.
+- [KYB data providers](https://venueauthority.com/solutions/kyb-data-providers): A facility-level signal to complement entity-level KYB.
+- [Restaurant portfolios](https://venueauthority.com/solutions/restaurant-portfolios): Portfolio resolution and monitoring.
+
+## Public jurisdiction indexes
+
+- [New York State regulator records](https://venueauthority.com/business-license-lookup/new-york-state): 93,330 source-scoped records across 2 sources.
+- [California regulator records](https://venueauthority.com/business-license-lookup/california): 87,844 source-scoped records across 1 source.
+- [Texas regulator records](https://venueauthority.com/business-license-lookup/texas): 78,198 source-scoped records across 1 source.
+- [Chicago regulator records](https://venueauthority.com/business-license-lookup/chicago): 54,235 source-scoped records across 2 sources.
+- [Philadelphia regulator records](https://venueauthority.com/business-license-lookup/philadelphia): 39,228 source-scoped records across 1 source.
+- [Los Angeles County regulator records](https://venueauthority.com/business-license-lookup/los-angeles-county): 37,211 source-scoped records across 1 source.
+- [New York City regulator records](https://venueauthority.com/business-license-lookup/nyc): 31,298 source-scoped records across 1 source.
+- [Maricopa County regulator records](https://venueauthority.com/business-license-lookup/maricopa-county): 27,488 source-scoped records across 1 source.
+- [Virginia regulator records](https://venueauthority.com/business-license-lookup/virginia): 18,171 source-scoped records across 1 source.
+- [Massachusetts regulator records](https://venueauthority.com/business-license-lookup/massachusetts): 17,778 source-scoped records across 2 sources.
+- [Oregon regulator records](https://venueauthority.com/business-license-lookup/oregon): 17,755 source-scoped records across 1 source.
+- [Colorado regulator records](https://venueauthority.com/business-license-lookup/colorado): 16,652 source-scoped records across 1 source.
+- [King County, WA regulator records](https://venueauthority.com/business-license-lookup/king-county): 12,264 source-scoped records across 1 source.
+- [Santa Clara County regulator records](https://venueauthority.com/business-license-lookup/santa-clara-county): 9,708 source-scoped records across 1 source.
+- [Washington State ON Premise regulator records](https://venueauthority.com/business-license-lookup/washington-state-on-premise): 9,252 source-scoped records across 1 source.
+- [Cincinnati Hamilton regulator records](https://venueauthority.com/business-license-lookup/cincinnati-hamilton): 9,151 source-scoped records across 1 source.
+- [San Francisco regulator records](https://venueauthority.com/business-license-lookup/san-francisco): 8,578 source-scoped records across 1 source.
+- [Detroit regulator records](https://venueauthority.com/business-license-lookup/detroit): 7,813 source-scoped records across 1 source.
+- [Austin Travis regulator records](https://venueauthority.com/business-license-lookup/austin-travis): 6,518 source-scoped records across 1 source.
+- [Connecticut regulator records](https://venueauthority.com/business-license-lookup/connecticut): 6,382 source-scoped records across 2 sources.
+- [Fulton County regulator records](https://venueauthority.com/business-license-lookup/fulton-county): 6,035 source-scoped records across 1 source.
+- [Washington State Off Premise regulator records](https://venueauthority.com/business-license-lookup/washington-state-off-premise): 5,707 source-scoped records across 1 source.
+- [East Baton Rouge regulator records](https://venueauthority.com/business-license-lookup/east-baton-rouge): 5,319 source-scoped records across 1 source.
+- [Alameda County regulator records](https://venueauthority.com/business-license-lookup/alameda-county): 5,101 source-scoped records across 1 source.
+- [Louisville Jefferson regulator records](https://venueauthority.com/business-license-lookup/louisville-jefferson): 4,315 source-scoped records across 1 source.
+- [Montgomery County MD regulator records](https://venueauthority.com/business-license-lookup/montgomery-county-md): 4,160 source-scoped records across 1 source.
+- [Wake County, NC regulator records](https://venueauthority.com/business-license-lookup/wake-county): 4,059 source-scoped records across 1 source.
+- [Tri County Colorado regulator records](https://venueauthority.com/business-license-lookup/tri-county-colorado): 4,004 source-scoped records across 1 source.
+- [Fairfax County regulator records](https://venueauthority.com/business-license-lookup/fairfax-county): 3,876 source-scoped records across 1 source.
+- [Kansas City Missouri regulator records](https://venueauthority.com/business-license-lookup/kansas-city-missouri): 3,673 source-scoped records across 1 source.
+- [Prince Georges County regulator records](https://venueauthority.com/business-license-lookup/prince-georges-county): 3,380 source-scoped records across 1 source.
+- [Minneapolis regulator records](https://venueauthority.com/business-license-lookup/minneapolis): 2,897 source-scoped records across 1 source.
+- [Boulder County regulator records](https://venueauthority.com/business-license-lookup/boulder-county): 1,798 source-scoped records across 1 source.
+- [Cambridge Massachusetts regulator records](https://venueauthority.com/business-license-lookup/cambridge-massachusetts): 1,630 source-scoped records across 1 source.
+- [Marin County regulator records](https://venueauthority.com/business-license-lookup/marin-county): 1,504 source-scoped records across 1 source.
+
+Up to 24 leading-city pages are published for each admitted jurisdiction, and only for localities with at least 25 records in the serving set. City URLs follow /business-license-lookup/{jurisdiction}/city/{city-slug}. Each page reports source-scoped counts, source freshness, official source links, and a bounded set of facility examples. Use the sitemap below for the current canonical city URL list.
+
+## Methodology and trust
+
+- [Record-matching methodology](https://venueauthority.com/methodology): Matching rules, source interpretation, benchmark, and limits.
+- [Trust Center](https://venueauthority.com/trust): Index of implemented product controls.
+- [Source coverage and publication rights](https://venueauthority.com/trust/source-coverage-and-rights): Venue Authority serves supported regulator records that are approved for the requested delivery channel and have not been withdrawn.
+- [Data flow and retention](https://venueauthority.com/trust/data-flow-and-retention): Portfolio Proof minimizes submitted merchant data and keeps billing truth separate from behavioral data.
+- [API-key handling and tenant isolation](https://venueauthority.com/trust/api-key-and-tenant-security): API keys are workspace-owned credentials whose plaintext value is shown once.
+- [Billing and entitlement controls](https://venueauthority.com/trust/billing-and-entitlements): Only a verified Stripe event can create paid capacity.
+- [Refresh validation and last-known-good behavior](https://venueauthority.com/trust/refresh-and-last-known-good): A failed source refresh does not replace a validated serving snapshot.
+- [Webhook signing and retry semantics](https://venueauthority.com/trust/webhook-delivery): Venue Authority sends signed, versioned change events with stable identifiers.
+- [Subprocessors in current use](https://venueauthority.com/trust/subprocessors): Venue Authority uses hosted providers for identity, application delivery, persistence, and payment processing.
+- [Incident support and current status](https://venueauthority.com/trust/incident-support-and-status): Support is asynchronous and request IDs provide the starting point for investigation.
+
+## Policies and support
+
+- [Privacy Policy](https://venueauthority.com/privacy): Account, billing, API, analytics, and support data practices.
+- [Terms of Service](https://venueauthority.com/terms): Business-use terms, permitted use, and limitations.
+- [Refund policy](https://venueauthority.com/refunds): Refund handling for one-time prepaid capacity.
+- [Support](https://venueauthority.com/support): Asynchronous support. Do not send API keys, passwords, full card numbers, or private source exports.
+
+## Discovery and citation
+
+- Sitemap: https://venueauthority.com/sitemap.xml
+- Robots: https://venueauthority.com/robots.txt
+- Concise LLM index: https://venueauthority.com/llms.txt
+- Full LLM context: https://venueauthority.com/llms-full.txt
+
+For changing facts, cite the canonical page that displays the fact. Use Coverage for record and source counts, Status for availability, Pricing for commercial terms, Developer API or OpenAPI for integration behavior, Methodology for resolver claims, and the individual facility page for source-linked evidence.

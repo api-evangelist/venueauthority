@@ -1,0 +1,108 @@
+aid: venueauthority
+name: Venue Authority
+description: >-
+  Venue Authority is a self-serve facility verification and monitoring API for payment facilitators,
+  marketplaces, KYB providers and restaurant platforms working with food-service businesses. It matches
+  a business name and street address to a supported regulator facility record, returns source-linked
+  evidence for that match, and supports ongoing portfolio monitoring so a change at the regulator
+  surfaces after onboarding rather than at the next manual review. The public contract is an OpenAPI
+  3.1 document of 12 paths and 15 operations covering resolve, facility lookup, coverage, portfolios
+  and portfolio items, authenticated with a bearer API key. Coverage is enumerated by the API itself
+  rather than described in prose, and the provider publishes an APIs.json, llms.txt, llms-full.txt,
+  a Postman collection and a machine-readable error catalogue alongside the contract.
+type: Index
+image: https://venueauthority.com/venue-authority-mark.svg
+url: https://raw.githubusercontent.com/api-evangelist/venueauthority/refs/heads/main/apis.yml
+created: '2026-08-21'
+modified: '2026-08-21'
+specificationVersion: '0.23'
+tags:
+- Facility Verification
+- KYB
+- Food Service
+- Payments
+- Marketplaces
+- Compliance
+- Monitoring
+- Regulatory Data
+tags_raw:
+- food service
+- facility verification
+- merchant onboarding
+- regulator records
+- monitoring
+- KYB
+- payment facilitators
+- marketplaces
+- restaurant platforms
+apis:
+- aid: venueauthority:venueauthority-facility-verification-api
+  name: Venue Authority Facility Verification API
+  description: >-
+    Matches a food-service business name and street address to a supported regulator facility record,
+    returns source-linked evidence, and supports portfolio monitoring. 12 paths, 15 operations,
+    bearer API key authentication.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Facility Verification
+  - KYB
+  - Food Service
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-facility-verification-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+common:
+- type: APIsJSON
+  url: https://venueauthority.com/apis.json
+- type: LLMsTxt
+  url: https://venueauthority.com/llms.txt
+- type: Website
+  url: https://venueauthority.com
+- type: DeveloperPortal
+  url: https://venueauthority.com/developers
+- type: Plans
+  url: https://venueauthority.com/pricing
+- type: StatusPage
+  url: https://venueauthority.com/status
+- type: TermsOfService
+  url: https://venueauthority.com/terms
+- type: PrivacyPolicy
+  url: https://venueauthority.com/privacy
+- type: SecurityPolicy
+  url: https://venueauthority.com/trust/api-key-and-tenant-security
+- type: Support
+  url: https://venueauthority.com/support
+- type: GitHubRepository
+  url: https://github.com/kingymon1/venue-authority-api
+maintainers:
+- FN: Venue Authority
+  url: https://venueauthority.com
+x-provenance:
+  added: '2026-08-21'
+  method: searched
+  source: https://github.com/api-search/inbox/issues/12
+  note: >-
+    Submitted by the provider on the api-search/inbox issue tracker with a complete artifact list.
+    Every declared URL was fetched and confirmed 2xx before being recorded here, against a control
+    probe of two invented paths that returned real 404s, so the 200s are genuine routes and not a
+    catch-all. The live API was exercised anonymously: /api/v1/coverage returned real regulator
+    records, /api/v1/resolve returned 405 (it is POST-only) and /api/v1/facilities/{id} returned 401.
+    Nothing in this record is derived or modelled.
