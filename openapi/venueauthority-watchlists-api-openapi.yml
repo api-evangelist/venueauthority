@@ -1,0 +1,309 @@
+openapi: 3.2.0
+info:
+  title: Venue Authority Watchlists API
+  version: '2026-08-21'
+  description: Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.
+  termsOfService: https://venueauthority.com/terms
+  contact:
+    name: Venue Authority support
+    url: https://venueauthority.com/support
+    email: support@venueauthority.com
+servers:
+- url: https://venueauthority.com
+security:
+- bearerAuth: []
+tags:
+- name: Watchlists
+  description: Manage workspace-owned facility watchlists and stable change history.
+paths:
+  /api/v1/portfolios:
+    get:
+      operationId: listWatchlists
+      tags:
+      - Watchlists
+      summary: List workspace watchlists
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Workspace-owned watchlists.
+    post:
+      operationId: createWatchlist
+      tags:
+      - Watchlists
+      summary: Create a workspace watchlist
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 80
+      responses:
+        '201':
+          description: Watchlist created.
+        '400':
+          description: Invalid watchlist input.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/portfolios/{id}/items:
+    get:
+      operationId: listWatchlistItems
+      tags:
+      - Watchlists
+      summary: List watchlist items
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/PortfolioId'
+      responses:
+        '200':
+          description: Workspace-owned watchlist items.
+        '404':
+          description: The watchlist was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: A represented source was withdrawn. No item body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: Source approval or watchlist data is unavailable. No item body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+    post:
+      operationId: addWatchlistItem
+      tags:
+      - Watchlists
+      summary: Add a canonical facility to a watchlist
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/PortfolioId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - jurisdiction
+              - sourceId
+              properties:
+                jurisdiction:
+                  type: string
+                sourceId:
+                  type: string
+      responses:
+        '201':
+          description: Watchlist item created.
+        '400':
+          description: Use a canonical jurisdiction and source ID returned by the resolver.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '404':
+          description: The watchlist was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: The source was withdrawn.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: Source approval or serving data is unavailable.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/portfolios/{id}/items/{itemId}:
+    delete:
+      operationId: deleteWatchlistItem
+      tags:
+      - Watchlists
+      summary: Remove a watchlist item
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/PortfolioId'
+      - $ref: '#/components/parameters/ItemId'
+      responses:
+        '200':
+          description: Watchlist item removed.
+        '404':
+          description: The watchlist item was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/portfolios/{id}/events:
+    get:
+      operationId: listWatchlistEvents
+      tags:
+      - Watchlists
+      summary: List stable change events for a watchlist
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/PortfolioId'
+      responses:
+        '200':
+          description: Workspace-owned change events in reverse chronological order.
+        '404':
+          description: The watchlist was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: A represented source was withdrawn. No event body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: Source approval or event data is unavailable. No event body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+components:
+  parameters:
+    ItemId:
+      name: itemId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    PortfolioId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VenueAuthorityKey
+    sessionAuth:
+      type: apiKey
+      in: cookie
+      name: __session
+      description: Authenticated customer session.
+externalDocs:
+  description: Venue Authority API documentation
+  url: https://venueauthority.com/developers

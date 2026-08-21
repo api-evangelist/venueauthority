@@ -6,10 +6,13 @@ description: >-
   a business name and street address to a supported regulator facility record, returns source-linked
   evidence for that match, and supports ongoing portfolio monitoring so a change at the regulator
   surfaces after onboarding rather than at the next manual review. The public contract is an OpenAPI
-  3.1 document of 12 paths and 15 operations covering resolve, facility lookup, coverage, portfolios
-  and portfolio items, authenticated with a bearer API key. Coverage is enumerated by the API itself
-  rather than described in prose, and the provider publishes an APIs.json, llms.txt, llms-full.txt,
-  a Postman collection and a machine-readable error catalogue alongside the contract.
+  3.1 document of 12 paths and 15 operations, authenticated with a bearer API key, and the provider
+  tags every operation into five groups — resolution and evidence, coverage, watchlists, webhooks and
+  audit exports — which is how it is carried here as five per-resource documents. Coverage is
+  enumerated by the API itself rather than described in prose, and the provider publishes an
+  APIs.json, llms.txt, llms-full.txt, a Postman collection and a machine-readable error catalogue
+  alongside the contract, plus MIT-licensed Node.js, Python and MCP client packages released on
+  GitHub with checksummed build artifacts.
 type: Index
 image: https://venueauthority.com/venue-authority-mark.svg
 url: https://raw.githubusercontent.com/api-evangelist/venueauthority/refs/heads/main/apis.yml
@@ -36,21 +39,128 @@ tags_raw:
 - marketplaces
 - restaurant platforms
 apis:
-- aid: venueauthority:venueauthority-facility-verification-api
-  name: Venue Authority Facility Verification API
-  description: >-
-    Matches a food-service business name and street address to a supported regulator facility record,
-    returns source-linked evidence, and supports portfolio monitoring. 12 paths, 15 operations,
-    bearer API key authentication.
+- aid: venueauthority:venueauthority-audit-exports-api
+  name: Venue Authority Audit Exports API
+  description: Create and download workspace-scoped evidence exports.
   humanURL: https://venueauthority.com/developers
   baseURL: https://venueauthority.com
   tags:
-  - Facility Verification
-  - KYB
-  - Food Service
+  - Audit Exports
   properties:
   - type: OpenAPI
-    url: openapi/venueauthority-facility-verification-api-openapi.yml
+    url: openapi/venueauthority-audit-exports-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-coverage-api
+  name: Venue Authority Coverage API
+  description: Read supported sources, record counts, availability, and freshness.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Coverage
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-coverage-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-resolution-evidence-api
+  name: Venue Authority Resolution & Evidence API
+  description: Resolve a merchant and retrieve its canonical regulator record and retained evidence.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Resolution & Evidence
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-resolution-evidence-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-watchlists-api
+  name: Venue Authority Watchlists API
+  description: Manage workspace-owned facility watchlists and stable change history.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Watchlists
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-watchlists-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-webhooks-api
+  name: Venue Authority Webhooks API
+  description: Register endpoints and inspect delivery attempts.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-webhooks-api-openapi.yml
   - type: PostmanCollection
     url: collections/venueauthority.postman_collection.json
   - type: ErrorCatalog
@@ -92,6 +202,18 @@ common:
   url: https://venueauthority.com/support
 - type: GitHubRepository
   url: https://github.com/kingymon1/venue-authority-api
+- type: SDKs
+  url: https://github.com/kingymon1/venue-authority-api/tree/main/packages/node-sdk
+- type: SDKs
+  url: https://github.com/kingymon1/venue-authority-api/tree/main/packages/python-sdk
+- type: MCPServer
+  url: https://github.com/kingymon1/venue-authority-api/tree/main/packages/mcp-server
+- type: GitHubRelease
+  url: https://github.com/kingymon1/venue-authority-api/releases/tag/clients-v0.1.0
+- type: PostmanWorkspace
+  url: https://www.postman.com/kingymon11-8337942/venue-authority/overview
+- type: PostmanDocumentation
+  url: https://documenter.getpostman.com/view/57620096/2sBYArVYPE
 maintainers:
 - FN: Venue Authority
   url: https://venueauthority.com
@@ -106,3 +228,33 @@ x-provenance:
     catch-all. The live API was exercised anonymously: /api/v1/coverage returned real regulator
     records, /api/v1/resolve returned 405 (it is POST-only) and /api/v1/facilities/{id} returned 401.
     Nothing in this record is derived or modelled.
+x-evidence:
+  amended: '2026-08-21'
+  source: https://github.com/api-search/inbox/issues/12
+  note: >-
+    The provider reported two changes on the original issue and both were re-verified live before
+    anything here moved. FIRST, the contract is now tagged: the published OpenAPI declares five tags
+    and all fifteen operations carry one, where the version harvested on 2026-08-21 declared none.
+    Diffed against the archived original, the operation set is byte-identical — same 12 paths, same
+    15 operationIds, nothing added, removed or renamed — so the change is purely additive and the
+    single document was re-split into five per-resource documents with 1.00x duplication and zero
+    dangling references. The pre-tag upstream is kept at
+    openapi/_original/venueauthority-openapi-2026-08-21-untagged.json.
+    SECOND, the client packages exist: packages/node-sdk, packages/python-sdk and packages/mcp-server
+    are present in the repository, each carrying its own MIT LICENSE, and release clients-v0.1.0
+    publishes four build artifacts whose SHA-256 digests are computed by GitHub rather than supplied
+    by the provider. The MCP package's declared dependencies resolve on npm at the pinned versions.
+    npm and PyPI return 404 for these package names, which matches the provider's own statement that
+    no registry-availability claim is being made; no registry pointer is recorded here.
+    Every URL added to common[] was fetched against a control probe of four plausible-but-absent
+    paths (/openapi.yaml, /sdk, /docs/changelog.json, /.well-known/security.txt) that all returned
+    real 404s, so the 200s are genuine routes.
+  not_recorded:
+    - >-
+      The provider's apis.json declares maintainers[0].organizationName "Zupa Print", which does not
+      match any other Venue Authority surface. Left out of maintainers here pending confirmation from
+      the provider rather than recorded as the operating entity.
+    - >-
+      https://venueauthority.com/.well-known/apis.json returns 404. The apis.json copy held under
+      well-known/ in this repo is a harvest of https://venueauthority.com/apis.json, not evidence of
+      a .well-known catalog, and is not scored as one.

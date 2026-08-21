@@ -1,0 +1,23 @@
+{
+  "provider": "venueauthority",
+  "sources": [
+    "venueauthority-openapi.json"
+  ],
+  "outputs": [
+    "venueauthority-audit-exports-api-openapi.yml",
+    "venueauthority-coverage-api-openapi.yml",
+    "venueauthority-resolution-evidence-api-openapi.yml",
+    "venueauthority-watchlists-api-openapi.yml",
+    "venueauthority-webhooks-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/venueauthority-openapi.json"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "venueauthority-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+5 apis, 5 total)"
+  ],
+  "skipped": []
+}

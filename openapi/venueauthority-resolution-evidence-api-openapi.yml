@@ -1,0 +1,289 @@
+openapi: 3.2.0
+info:
+  title: Venue Authority Resolution & Evidence API
+  version: '2026-08-21'
+  description: Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.
+  termsOfService: https://venueauthority.com/terms
+  contact:
+    name: Venue Authority support
+    url: https://venueauthority.com/support
+    email: support@venueauthority.com
+servers:
+- url: https://venueauthority.com
+security:
+- bearerAuth: []
+tags:
+- name: Resolution & Evidence
+  description: Resolve a merchant and retrieve its canonical regulator record and retained evidence.
+paths:
+  /api/v1/resolve:
+    post:
+      operationId: resolveFacility
+      tags:
+      - Resolution & Evidence
+      summary: Resolve a merchant name and street address
+      parameters:
+      - $ref: '#/components/parameters/RequestId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResolveRequest'
+            example:
+              name: REDACTED MERCHANT
+              address: REDACTED STREET ADDRESS
+      responses:
+        '200':
+          $ref: '#/components/responses/Resolution'
+        '400':
+          description: Malformed input is not metered.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '401':
+          description: A valid API key is required.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '402':
+          description: The prepaid balance is exhausted.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '409':
+          description: The request ID conflicts with different work or the first request is incomplete.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '422':
+          $ref: '#/components/responses/Resolution'
+        '503':
+          description: The serving snapshot or source approval is unavailable. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/facilities/{id}:
+    get:
+      operationId: getFacility
+      tags:
+      - Resolution & Evidence
+      summary: Get one canonical regulator facility
+      parameters:
+      - $ref: '#/components/parameters/RequestId'
+      - $ref: '#/components/parameters/FacilityId'
+      responses:
+        '200':
+          description: Canonical facility and evidence receipt. Evidence retrieved for this request is labelled retrieved_on_demand. effectiveAt is null when the source does not provide a usable effective date.
+        '404':
+          description: The facility was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: The source was withdrawn. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: The serving snapshot or source approval is unavailable. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+components:
+  responses:
+    Resolution:
+      description: Accepted responses use 200. Policy rejections use 422. Both consume one unit when the request is otherwise valid and the serving snapshot is available.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Resolution'
+  schemas:
+    Resolution:
+      type: object
+      required:
+      - disposition
+      - reason
+      - requestId
+      - sourceAttribution
+      properties:
+        disposition:
+          enum:
+          - accepted
+          - rejected
+        reason:
+          type: string
+        requestId:
+          type: string
+        record:
+          type: object
+        sourceAttribution:
+          $ref: '#/components/schemas/SourceAttribution'
+        snapshot:
+          type: object
+        evidence:
+          type: object
+          properties:
+            status:
+              enum:
+              - retrieved_on_demand
+              - unavailable
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/EvidenceEvent'
+    SourceAttribution:
+      type:
+      - object
+      - 'null'
+      properties:
+        sourceId:
+          type: string
+        sourceClass:
+          enum:
+          - food_inspection
+          - food_business_license
+          - alcohol_license
+          - hospitality_license
+        sourceClassLabel:
+          type: string
+        attribution:
+          type: string
+        requiredNotice:
+          type:
+          - string
+          - 'null'
+        licenseUrl:
+          type: string
+          format: uri
+        modificationNotice:
+          type: string
+    EvidenceEvent:
+      type: object
+      required:
+      - eventType
+      - observedAt
+      - effectiveAt
+      - effectiveAtStatus
+      properties:
+        eventType:
+          type: string
+        observedAt:
+          type: string
+          format: date-time
+        effectiveAt:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        effectiveAtStatus:
+          enum:
+          - provided_by_source
+          - unavailable
+    ResolveRequest:
+      type: object
+      additionalProperties: false
+      required:
+      - name
+      - address
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 300
+        address:
+          type: string
+          minLength: 1
+          maxLength: 500
+  parameters:
+    RequestId:
+      name: x-request-id
+      in: header
+      required: false
+      description: Stable 8 to 128 character idempotency key. Same work replays without another debit; changed work returns 409.
+      schema:
+        type: string
+        pattern: ^[A-Za-z0-9._:-]{8,128}$
+    FacilityId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VenueAuthorityKey
+    sessionAuth:
+      type: apiKey
+      in: cookie
+      name: __session
+      description: Authenticated customer session.
+externalDocs:
+  description: Venue Authority API documentation
+  url: https://venueauthority.com/developers

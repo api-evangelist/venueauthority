@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: Venue Authority Webhooks API
+  version: '2026-08-21'
+  description: Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.
+  termsOfService: https://venueauthority.com/terms
+  contact:
+    name: Venue Authority support
+    url: https://venueauthority.com/support
+    email: support@venueauthority.com
+servers:
+- url: https://venueauthority.com
+security:
+- bearerAuth: []
+tags:
+- name: Webhooks
+  description: Register endpoints and inspect delivery attempts.
+paths:
+  /api/v1/webhooks:
+    get:
+      operationId: listWebhooks
+      tags:
+      - Webhooks
+      summary: List workspace webhook endpoints
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Webhook endpoints without plaintext secrets.
+    post:
+      operationId: createWebhook
+      tags:
+      - Webhooks
+      summary: Create an HTTPS webhook endpoint
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      responses:
+        '201':
+          description: Endpoint created. The signing secret appears once.
+        '400':
+          description: The webhook URL is not allowed.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/webhooks/{id}:
+    delete:
+      operationId: deleteWebhook
+      tags:
+      - Webhooks
+      summary: Disable and remove a webhook endpoint
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook removed.
+        '404':
+          description: The webhook was not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/webhooks/deliveries:
+    get:
+      operationId: listWebhookDeliveries
+      tags:
+      - Webhooks
+      summary: List webhook delivery attempts
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - name: webhookId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Per-delivery state, attempts, response class, and timestamps for this workspace.
+components:
+  parameters:
+    WebhookId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VenueAuthorityKey
+    sessionAuth:
+      type: apiKey
+      in: cookie
+      name: __session
+      description: Authenticated customer session.
+externalDocs:
+  description: Venue Authority API documentation
+  url: https://venueauthority.com/developers

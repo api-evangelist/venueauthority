@@ -20,28 +20,6 @@
       "url": "https://venueauthority.com"
     }
   ],
-  "tags": [
-    {
-      "name": "Resolution & Evidence",
-      "description": "Resolve a merchant and retrieve its canonical regulator record and retained evidence."
-    },
-    {
-      "name": "Coverage",
-      "description": "Read supported sources, record counts, availability, and freshness."
-    },
-    {
-      "name": "Watchlists",
-      "description": "Manage workspace-owned facility watchlists and stable change history."
-    },
-    {
-      "name": "Webhooks",
-      "description": "Register endpoints and inspect delivery attempts."
-    },
-    {
-      "name": "Audit Exports",
-      "description": "Create and download workspace-scoped evidence exports."
-    }
-  ],
   "security": [
     {
       "bearerAuth": []
@@ -51,9 +29,6 @@
     "/api/v1/resolve": {
       "post": {
         "operationId": "resolveFacility",
-        "tags": [
-          "Resolution & Evidence"
-        ],
         "summary": "Resolve a merchant name and street address",
         "parameters": [
           {
@@ -192,9 +167,6 @@
     "/api/v1/facilities/{id}": {
       "get": {
         "operationId": "getFacility",
-        "tags": [
-          "Resolution & Evidence"
-        ],
         "summary": "Get one canonical regulator facility",
         "parameters": [
           {
@@ -277,9 +249,6 @@
     "/api/v1/coverage": {
       "get": {
         "operationId": "getCoverage",
-        "tags": [
-          "Coverage"
-        ],
         "summary": "Read supported source and freshness status",
         "security": [],
         "responses": {
@@ -334,9 +303,6 @@
     "/api/v1/portfolios": {
       "get": {
         "operationId": "listWatchlists",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "List workspace watchlists",
         "security": [
           {
@@ -354,9 +320,6 @@
       },
       "post": {
         "operationId": "createWatchlist",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "Create a workspace watchlist",
         "security": [
           {
@@ -417,9 +380,6 @@
     "/api/v1/portfolios/{id}/items": {
       "get": {
         "operationId": "listWatchlistItems",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "List watchlist items",
         "security": [
           {
@@ -505,9 +465,6 @@
       },
       "post": {
         "operationId": "addWatchlistItem",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "Add a canonical facility to a watchlist",
         "security": [
           {
@@ -638,9 +595,6 @@
     "/api/v1/portfolios/{id}/items/{itemId}": {
       "delete": {
         "operationId": "deleteWatchlistItem",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "Remove a watchlist item",
         "security": [
           {
@@ -689,9 +643,6 @@
     "/api/v1/portfolios/{id}/events": {
       "get": {
         "operationId": "listWatchlistEvents",
-        "tags": [
-          "Watchlists"
-        ],
         "summary": "List stable change events for a watchlist",
         "security": [
           {
@@ -779,9 +730,6 @@
     "/api/v1/webhooks": {
       "get": {
         "operationId": "listWebhooks",
-        "tags": [
-          "Webhooks"
-        ],
         "summary": "List workspace webhook endpoints",
         "security": [
           {
@@ -799,9 +747,6 @@
       },
       "post": {
         "operationId": "createWebhook",
-        "tags": [
-          "Webhooks"
-        ],
         "summary": "Create an HTTPS webhook endpoint",
         "security": [
           {
@@ -842,9 +787,6 @@
     "/api/v1/webhooks/{id}": {
       "delete": {
         "operationId": "deleteWebhook",
-        "tags": [
-          "Webhooks"
-        ],
         "summary": "Disable and remove a webhook endpoint",
         "security": [
           {
@@ -890,9 +832,6 @@
     "/api/v1/webhooks/deliveries": {
       "get": {
         "operationId": "listWebhookDeliveries",
-        "tags": [
-          "Webhooks"
-        ],
         "summary": "List webhook delivery attempts",
         "security": [
           {
@@ -923,9 +862,6 @@
     "/api/v1/audit-exports": {
       "post": {
         "operationId": "createAuditExport",
-        "tags": [
-          "Audit Exports"
-        ],
         "summary": "Create a JSON export from owned completed evidence receipts",
         "parameters": [
           {
@@ -1005,9 +941,6 @@
     "/api/v1/audit-exports/{id}": {
       "get": {
         "operationId": "downloadAuditExport",
-        "tags": [
-          "Audit Exports"
-        ],
         "summary": "Download an already-issued audit export",
         "security": [
           {

@@ -1,0 +1,151 @@
+openapi: 3.2.0
+info:
+  title: Venue Authority Audit Exports API
+  version: '2026-08-21'
+  description: Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.
+  termsOfService: https://venueauthority.com/terms
+  contact:
+    name: Venue Authority support
+    url: https://venueauthority.com/support
+    email: support@venueauthority.com
+servers:
+- url: https://venueauthority.com
+security:
+- bearerAuth: []
+tags:
+- name: Audit Exports
+  description: Create and download workspace-scoped evidence exports.
+paths:
+  /api/v1/audit-exports:
+    post:
+      operationId: createAuditExport
+      tags:
+      - Audit Exports
+      summary: Create a JSON export from owned completed evidence receipts
+      parameters:
+      - $ref: '#/components/parameters/RequestId'
+      responses:
+        '201':
+          description: Tenant-scoped JSON artifact and SHA-256 hash.
+        '404':
+          description: A requested receipt is missing, incomplete, or belongs to another workspace. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: A source needed by the export was withdrawn. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: Source approval is unavailable. No unit is debited.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+  /api/v1/audit-exports/{id}:
+    get:
+      operationId: downloadAuditExport
+      tags:
+      - Audit Exports
+      summary: Download an already-issued audit export
+      security:
+      - sessionAuth: []
+      - bearerAuth: []
+      parameters:
+      - $ref: '#/components/parameters/AuditExportId'
+      responses:
+        '200':
+          description: The immutable JSON artifact. Download remains subject to authenticated API approval for every enabled source.
+        '404':
+          description: The export was not found in this workspace.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '410':
+          description: A source represented by the export is withdrawn. No artifact body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+        '503':
+          description: Source approval is unavailable. No artifact body is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - error
+                properties:
+                  error:
+                    type: string
+                  requestId:
+                    type: string
+components:
+  parameters:
+    AuditExportId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    RequestId:
+      name: x-request-id
+      in: header
+      required: false
+      description: Stable 8 to 128 character idempotency key. Same work replays without another debit; changed work returns 409.
+      schema:
+        type: string
+        pattern: ^[A-Za-z0-9._:-]{8,128}$
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VenueAuthorityKey
+    sessionAuth:
+      type: apiKey
+      in: cookie
+      name: __session
+      description: Authenticated customer session.
+externalDocs:
+  description: Venue Authority API documentation
+  url: https://venueauthority.com/developers
