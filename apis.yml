@@ -14,6 +14,19 @@ description: >-
   alongside the contract, plus MIT-licensed Node.js, Python and MCP client packages released on
   GitHub with checksummed build artifacts.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://venueauthority.com/venue-authority-mark.svg
 url: https://raw.githubusercontent.com/api-evangelist/venueauthority/refs/heads/main/apis.yml
 created: '2026-08-21'
