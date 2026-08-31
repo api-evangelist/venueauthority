@@ -33,14 +33,15 @@ created: '2026-08-21'
 modified: '2026-08-21'
 specificationVersion: '0.23'
 tags:
-- Facility Verification
-- KYB
-- Food Service
-- Payments
-- Marketplaces
-- Compliance
+- food service
+- facility verification
+- merchant onboarding
+- regulator records
 - Monitoring
-- Regulatory Data
+- KYB
+- payment facilitators
+- marketplaces
+- restaurant platforms
 tags_raw:
 - food service
 - facility verification
@@ -142,6 +143,8 @@ apis:
   humanURL: https://venueauthority.com/developers
   baseURL: https://venueauthority.com
   tags:
+  - Watchlist
+  tags_raw:
   - Watchlists
   properties:
   - type: OpenAPI
@@ -170,6 +173,8 @@ apis:
   humanURL: https://venueauthority.com/developers
   baseURL: https://venueauthority.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
