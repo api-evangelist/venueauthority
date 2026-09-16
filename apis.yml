@@ -109,64 +109,6 @@ apis:
     url: https://venueauthority.com/trust/webhook-delivery
   - type: RateLimits
     url: https://venueauthority.com/pricing
-- aid: venueauthority:venueauthority-resolution-evidence-api
-  name: Venue Authority Resolution & Evidence API
-  description: Resolve a merchant and retrieve its canonical regulator record and retained evidence.
-  humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
-  tags:
-  - Resolution & Evidence
-  properties:
-  - type: OpenAPI
-    url: openapi/venueauthority-resolution-evidence-api-openapi.yml
-  - type: PostmanCollection
-    url: collections/venueauthority.postman_collection.json
-  - type: ErrorCatalog
-    url: errors/venueauthority-error-catalog.json
-  - type: GettingStarted
-    url: docs/venueauthority-quick-start.md
-  - type: Documentation
-    url: https://venueauthority.com/developers
-  - type: APIReference
-    url: https://venueauthority.com/openapi.json
-  - type: Authentication
-    url: https://venueauthority.com/developers
-  - type: Signup
-    url: https://venueauthority.com/sign-up
-  - type: Webhooks
-    url: https://venueauthority.com/trust/webhook-delivery
-  - type: RateLimits
-    url: https://venueauthority.com/pricing
-- aid: venueauthority:venueauthority-watchlists-api
-  name: Venue Authority Watchlists API
-  description: Manage workspace-owned facility watchlists and stable change history.
-  humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
-  tags:
-  - Watchlist
-  tags_raw:
-  - Watchlists
-  properties:
-  - type: OpenAPI
-    url: openapi/venueauthority-watchlists-api-openapi.yml
-  - type: PostmanCollection
-    url: collections/venueauthority.postman_collection.json
-  - type: ErrorCatalog
-    url: errors/venueauthority-error-catalog.json
-  - type: GettingStarted
-    url: docs/venueauthority-quick-start.md
-  - type: Documentation
-    url: https://venueauthority.com/developers
-  - type: APIReference
-    url: https://venueauthority.com/openapi.json
-  - type: Authentication
-    url: https://venueauthority.com/developers
-  - type: Signup
-    url: https://venueauthority.com/sign-up
-  - type: Webhooks
-    url: https://venueauthority.com/trust/webhook-delivery
-  - type: RateLimits
-    url: https://venueauthority.com/pricing
 - aid: venueauthority:venueauthority-webhooks-api
   name: Venue Authority Webhooks API
   description: Register endpoints and inspect delivery attempts.
@@ -179,6 +121,90 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/venueauthority-webhooks-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-facilities-api
+  name: Venue Authority Facilities API
+  description: The Facilities API from Venue Authority — 1 operation(s) for facilities.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Facilities
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-facilities-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-portfolios-api
+  name: Venue Authority Portfolios API
+  description: The Portfolios API from Venue Authority — 4 operation(s) for portfolios.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Portfolios
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-portfolios-api-openapi.yml
+  - type: PostmanCollection
+    url: collections/venueauthority.postman_collection.json
+  - type: ErrorCatalog
+    url: errors/venueauthority-error-catalog.json
+  - type: GettingStarted
+    url: docs/venueauthority-quick-start.md
+  - type: Documentation
+    url: https://venueauthority.com/developers
+  - type: APIReference
+    url: https://venueauthority.com/openapi.json
+  - type: Authentication
+    url: https://venueauthority.com/developers
+  - type: Signup
+    url: https://venueauthority.com/sign-up
+  - type: Webhooks
+    url: https://venueauthority.com/trust/webhook-delivery
+  - type: RateLimits
+    url: https://venueauthority.com/pricing
+- aid: venueauthority:venueauthority-resolve-api
+  name: Venue Authority Resolve API
+  description: The Resolve API from Venue Authority — 1 operation(s) for resolve.
+  humanURL: https://venueauthority.com/developers
+  baseURL: https://venueauthority.com
+  tags:
+  - Resolve
+  properties:
+  - type: OpenAPI
+    url: openapi/venueauthority-resolve-api-openapi.yml
   - type: PostmanCollection
     url: collections/venueauthority.postman_collection.json
   - type: ErrorCatalog
