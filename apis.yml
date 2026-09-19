@@ -40,7 +40,7 @@ tags:
 - Monitoring
 - KYB
 - Payment Facilitators
-- Marketplaces
+- Marketplace
 - restaurant platforms
 tags_raw:
 - food service
@@ -173,6 +173,8 @@ apis:
   humanURL: https://venueauthority.com/developers
   baseURL: https://venueauthority.com
   tags:
+  - Portfolio
+  tags_raw:
   - Portfolios
   properties:
   - type: OpenAPI
