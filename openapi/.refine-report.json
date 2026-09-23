@@ -1,23 +1,53 @@
 {
   "provider": "venueauthority",
   "sources": [
-    "venueauthority-openapi.json"
+    "_original/venueauthority-openapi-2026-08-21-untagged.json"
   ],
   "outputs": [
     "venueauthority-audit-exports-api-openapi.yml",
     "venueauthority-coverage-api-openapi.yml",
-    "venueauthority-resolution-evidence-api-openapi.yml",
-    "venueauthority-watchlists-api-openapi.yml",
+    "venueauthority-facilities-api-openapi.yml",
+    "venueauthority-portfolios-api-openapi.yml",
+    "venueauthority-resolve-api-openapi.yml",
     "venueauthority-webhooks-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/venueauthority-openapi.json"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "venueauthority-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+5 apis, 5 total)"
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "venueauthority-openapi-2026-08-21-untagged.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths POST /api/v1/resolve -> Resolve",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/facilities/{id} -> Facilities",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/coverage -> Coverage",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/portfolios -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths POST /api/v1/portfolios -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/portfolios/{id}/items -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths POST /api/v1/portfolios/{id}/items -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths DELETE /api/v1/portfolios/{id}/items/{itemId} -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/portfolios/{id}/events -> Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/webhooks -> Webhooks",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths POST /api/v1/webhooks -> Webhooks",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths DELETE /api/v1/webhooks/{id} -> Webhooks",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/webhooks/deliveries -> Webhooks",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths POST /api/v1/audit-exports -> Audit Exports",
+    "venueauthority-openapi-2026-08-21-untagged.json: tagged paths GET /api/v1/audit-exports/{id} -> Audit Exports",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Audit Exports",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Coverage",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Facilities",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Portfolios",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Resolve",
+    "venueauthority-openapi-2026-08-21-untagged.json: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/venueauthority-openapi.json: archived document superseded by a larger archived document",
+    "venueauthority-audit-exports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "venueauthority-coverage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "venueauthority-facilities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "venueauthority-portfolios-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "venueauthority-resolve-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "venueauthority-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

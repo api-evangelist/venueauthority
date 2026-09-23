@@ -14,13 +14,10 @@ security:
 - bearerAuth: []
 tags:
 - name: Webhooks
-  description: Register endpoints and inspect delivery attempts.
 paths:
   /api/v1/webhooks:
     get:
       operationId: listWebhooks
-      tags:
-      - Webhooks
       summary: List workspace webhook endpoints
       security:
       - sessionAuth: []
@@ -28,10 +25,10 @@ paths:
       responses:
         '200':
           description: Webhook endpoints without plaintext secrets.
-    post:
-      operationId: createWebhook
       tags:
       - Webhooks
+    post:
+      operationId: createWebhook
       summary: Create an HTTPS webhook endpoint
       security:
       - sessionAuth: []
@@ -52,11 +49,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Webhooks
   /api/v1/webhooks/{id}:
     delete:
       operationId: deleteWebhook
-      tags:
-      - Webhooks
       summary: Disable and remove a webhook endpoint
       security:
       - sessionAuth: []
@@ -79,11 +76,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Webhooks
   /api/v1/webhooks/deliveries:
     get:
       operationId: listWebhookDeliveries
-      tags:
-      - Webhooks
       summary: List webhook delivery attempts
       security:
       - sessionAuth: []
@@ -98,6 +95,8 @@ paths:
       responses:
         '200':
           description: Per-delivery state, attempts, response class, and timestamps for this workspace.
+      tags:
+      - Webhooks
 components:
   parameters:
     WebhookId:

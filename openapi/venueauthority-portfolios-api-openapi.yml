@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Venue Authority Watchlists API
+  title: Venue Authority Portfolios API
   version: '2026-08-21'
   description: Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.
   termsOfService: https://venueauthority.com/terms
@@ -13,14 +13,11 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Watchlists
-  description: Manage workspace-owned facility watchlists and stable change history.
+- name: Portfolios
 paths:
   /api/v1/portfolios:
     get:
       operationId: listWatchlists
-      tags:
-      - Watchlists
       summary: List workspace watchlists
       security:
       - sessionAuth: []
@@ -28,10 +25,10 @@ paths:
       responses:
         '200':
           description: Workspace-owned watchlists.
+      tags:
+      - Portfolios
     post:
       operationId: createWatchlist
-      tags:
-      - Watchlists
       summary: Create a workspace watchlist
       security:
       - sessionAuth: []
@@ -65,11 +62,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Portfolios
   /api/v1/portfolios/{id}/items:
     get:
       operationId: listWatchlistItems
-      tags:
-      - Watchlists
       summary: List watchlist items
       security:
       - sessionAuth: []
@@ -118,10 +115,10 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Portfolios
     post:
       operationId: addWatchlistItem
-      tags:
-      - Watchlists
       summary: Add a canonical facility to a watchlist
       security:
       - sessionAuth: []
@@ -197,11 +194,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Portfolios
   /api/v1/portfolios/{id}/items/{itemId}:
     delete:
       operationId: deleteWatchlistItem
-      tags:
-      - Watchlists
       summary: Remove a watchlist item
       security:
       - sessionAuth: []
@@ -225,11 +222,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Portfolios
   /api/v1/portfolios/{id}/events:
     get:
       operationId: listWatchlistEvents
-      tags:
-      - Watchlists
       summary: List stable change events for a watchlist
       security:
       - sessionAuth: []
@@ -278,17 +275,19 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Portfolios
 components:
   parameters:
-    ItemId:
-      name: itemId
+    PortfolioId:
+      name: id
       in: path
       required: true
       schema:
         type: string
         format: uuid
-    PortfolioId:
-      name: id
+    ItemId:
+      name: itemId
       in: path
       required: true
       schema:

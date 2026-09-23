@@ -14,13 +14,10 @@ security:
 - bearerAuth: []
 tags:
 - name: Audit Exports
-  description: Create and download workspace-scoped evidence exports.
 paths:
   /api/v1/audit-exports:
     post:
       operationId: createAuditExport
-      tags:
-      - Audit Exports
       summary: Create a JSON export from owned completed evidence receipts
       parameters:
       - $ref: '#/components/parameters/RequestId'
@@ -66,11 +63,11 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Audit Exports
   /api/v1/audit-exports/{id}:
     get:
       operationId: downloadAuditExport
-      tags:
-      - Audit Exports
       summary: Download an already-issued audit export
       security:
       - sessionAuth: []
@@ -119,6 +116,8 @@ paths:
                     type: string
                   requestId:
                     type: string
+      tags:
+      - Audit Exports
 components:
   parameters:
     AuditExportId:
