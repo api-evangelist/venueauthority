@@ -104,32 +104,6 @@ paths:
       - Resolve
 components:
   schemas:
-    SourceAttribution:
-      type:
-      - object
-      - 'null'
-      properties:
-        sourceId:
-          type: string
-        sourceClass:
-          enum:
-          - food_inspection
-          - food_business_license
-          - alcohol_license
-          - hospitality_license
-        sourceClassLabel:
-          type: string
-        attribution:
-          type: string
-        requiredNotice:
-          type:
-          - string
-          - 'null'
-        licenseUrl:
-          type: string
-          format: uri
-        modificationNotice:
-          type: string
     ResolveRequest:
       type: object
       additionalProperties: false
@@ -145,28 +119,6 @@ components:
           type: string
           minLength: 1
           maxLength: 500
-    EvidenceEvent:
-      type: object
-      required:
-      - eventType
-      - observedAt
-      - effectiveAt
-      - effectiveAtStatus
-      properties:
-        eventType:
-          type: string
-        observedAt:
-          type: string
-          format: date-time
-        effectiveAt:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-        effectiveAtStatus:
-          enum:
-          - provided_by_source
-          - unavailable
     Resolution:
       type: object
       required:
@@ -200,6 +152,54 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/EvidenceEvent'
+    SourceAttribution:
+      type:
+      - object
+      - 'null'
+      properties:
+        sourceId:
+          type: string
+        sourceClass:
+          enum:
+          - food_inspection
+          - food_business_license
+          - alcohol_license
+          - hospitality_license
+        sourceClassLabel:
+          type: string
+        attribution:
+          type: string
+        requiredNotice:
+          type:
+          - string
+          - 'null'
+        licenseUrl:
+          type: string
+          format: uri
+        modificationNotice:
+          type: string
+    EvidenceEvent:
+      type: object
+      required:
+      - eventType
+      - observedAt
+      - effectiveAt
+      - effectiveAtStatus
+      properties:
+        eventType:
+          type: string
+        observedAt:
+          type: string
+          format: date-time
+        effectiveAt:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        effectiveAtStatus:
+          enum:
+          - provided_by_source
+          - unavailable
   responses:
     Resolution:
       description: Accepted responses use 200. Policy rejections use 422. Both consume one unit when the request is otherwise valid and the serving snapshot is available.

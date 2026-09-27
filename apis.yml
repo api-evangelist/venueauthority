@@ -15,17 +15,20 @@ description: >-
   GitHub with checksummed build artifacts.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - kingymon1/venue-authority-api
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 image: https://venueauthority.com/venue-authority-mark.svg
 url: https://raw.githubusercontent.com/api-evangelist/venueauthority/refs/heads/main/apis.yml
@@ -57,7 +60,6 @@ apis:
   name: Venue Authority Audit Exports API
   description: Create and download workspace-scoped evidence exports.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Audit Exports
   properties:
@@ -85,7 +87,6 @@ apis:
   name: Venue Authority Coverage API
   description: Read supported sources, record counts, availability, and freshness.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Coverage
   properties:
@@ -113,7 +114,6 @@ apis:
   name: Venue Authority Webhooks API
   description: Register endpoints and inspect delivery attempts.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Webhook
   tags_raw:
@@ -143,7 +143,6 @@ apis:
   name: Venue Authority Facilities API
   description: The Facilities API from Venue Authority — 1 operation(s) for facilities.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Facilities
   properties:
@@ -171,7 +170,6 @@ apis:
   name: Venue Authority Portfolios API
   description: The Portfolios API from Venue Authority — 4 operation(s) for portfolios.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Portfolio
   tags_raw:
@@ -201,7 +199,6 @@ apis:
   name: Venue Authority Resolve API
   description: The Resolve API from Venue Authority — 1 operation(s) for resolve.
   humanURL: https://venueauthority.com/developers
-  baseURL: https://venueauthority.com
   tags:
   - Resolve
   properties:
