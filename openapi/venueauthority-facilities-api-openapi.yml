@@ -68,12 +68,6 @@ paths:
       - Facilities
 components:
   parameters:
-    FacilityId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
     RequestId:
       name: x-request-id
       in: header
@@ -82,6 +76,12 @@ components:
       schema:
         type: string
         pattern: ^[A-Za-z0-9._:-]{8,128}$
+    FacilityId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -103,6 +103,13 @@ paths:
       tags:
       - Resolve
 components:
+  responses:
+    Resolution:
+      description: Accepted responses use 200. Policy rejections use 422. Both consume one unit when the request is otherwise valid and the serving snapshot is available.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Resolution'
   schemas:
     ResolveRequest:
       type: object
@@ -119,39 +126,6 @@ components:
           type: string
           minLength: 1
           maxLength: 500
-    Resolution:
-      type: object
-      required:
-      - disposition
-      - reason
-      - requestId
-      - sourceAttribution
-      properties:
-        disposition:
-          enum:
-          - accepted
-          - rejected
-        reason:
-          type: string
-        requestId:
-          type: string
-        record:
-          type: object
-        sourceAttribution:
-          $ref: '#/components/schemas/SourceAttribution'
-        snapshot:
-          type: object
-        evidence:
-          type: object
-          properties:
-            status:
-              enum:
-              - retrieved_on_demand
-              - unavailable
-            events:
-              type: array
-              items:
-                $ref: '#/components/schemas/EvidenceEvent'
     SourceAttribution:
       type:
       - object
@@ -200,13 +174,39 @@ components:
           enum:
           - provided_by_source
           - unavailable
-  responses:
     Resolution:
-      description: Accepted responses use 200. Policy rejections use 422. Both consume one unit when the request is otherwise valid and the serving snapshot is available.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Resolution'
+      type: object
+      required:
+      - disposition
+      - reason
+      - requestId
+      - sourceAttribution
+      properties:
+        disposition:
+          enum:
+          - accepted
+          - rejected
+        reason:
+          type: string
+        requestId:
+          type: string
+        record:
+          type: object
+        sourceAttribution:
+          $ref: '#/components/schemas/SourceAttribution'
+        snapshot:
+          type: object
+        evidence:
+          type: object
+          properties:
+            status:
+              enum:
+              - retrieved_on_demand
+              - unavailable
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/EvidenceEvent'
   parameters:
     RequestId:
       name: x-request-id

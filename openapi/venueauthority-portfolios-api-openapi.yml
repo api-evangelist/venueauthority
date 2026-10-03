@@ -279,15 +279,15 @@ paths:
       - Portfolios
 components:
   parameters:
-    PortfolioId:
-      name: id
+    ItemId:
+      name: itemId
       in: path
       required: true
       schema:
         type: string
         format: uuid
-    ItemId:
-      name: itemId
+    PortfolioId:
+      name: id
       in: path
       required: true
       schema:
