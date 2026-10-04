@@ -111,21 +111,39 @@ components:
           schema:
             $ref: '#/components/schemas/Resolution'
   schemas:
-    ResolveRequest:
+    Resolution:
       type: object
-      additionalProperties: false
       required:
-      - name
-      - address
+      - disposition
+      - reason
+      - requestId
+      - sourceAttribution
       properties:
-        name:
+        disposition:
+          enum:
+          - accepted
+          - rejected
+        reason:
           type: string
-          minLength: 1
-          maxLength: 300
-        address:
+        requestId:
           type: string
-          minLength: 1
-          maxLength: 500
+        record:
+          type: object
+        sourceAttribution:
+          $ref: '#/components/schemas/SourceAttribution'
+        snapshot:
+          type: object
+        evidence:
+          type: object
+          properties:
+            status:
+              enum:
+              - retrieved_on_demand
+              - unavailable
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/EvidenceEvent'
     SourceAttribution:
       type:
       - object
@@ -174,39 +192,21 @@ components:
           enum:
           - provided_by_source
           - unavailable
-    Resolution:
+    ResolveRequest:
       type: object
+      additionalProperties: false
       required:
-      - disposition
-      - reason
-      - requestId
-      - sourceAttribution
+      - name
+      - address
       properties:
-        disposition:
-          enum:
-          - accepted
-          - rejected
-        reason:
+        name:
           type: string
-        requestId:
+          minLength: 1
+          maxLength: 300
+        address:
           type: string
-        record:
-          type: object
-        sourceAttribution:
-          $ref: '#/components/schemas/SourceAttribution'
-        snapshot:
-          type: object
-        evidence:
-          type: object
-          properties:
-            status:
-              enum:
-              - retrieved_on_demand
-              - unavailable
-            events:
-              type: array
-              items:
-                $ref: '#/components/schemas/EvidenceEvent'
+          minLength: 1
+          maxLength: 500
   parameters:
     RequestId:
       name: x-request-id

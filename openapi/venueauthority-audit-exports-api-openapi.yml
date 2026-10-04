@@ -120,13 +120,6 @@ paths:
       - Audit Exports
 components:
   parameters:
-    AuditExportId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
     RequestId:
       name: x-request-id
       in: header
@@ -135,6 +128,13 @@ components:
       schema:
         type: string
         pattern: ^[A-Za-z0-9._:-]{8,128}$
+    AuditExportId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     bearerAuth:
       type: http
